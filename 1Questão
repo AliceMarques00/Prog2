@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class LivroNotas {
+    private double somaNotas;
+    private int quantidadeNotas;
+
+    public void adicionarNota(double nota) {
+        somaNotas += nota;
+        quantidadeNotas++;
+    }
+
+    public double calcularMedia() {
+        return quantidadeNotas > 0 ? somaNotas / quantidadeNotas : 0;
+    }
+
+    public int getQuantidadeNotas() {
+        return quantidadeNotas;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        LivroNotas livro = new LivroNotas();
+
+        while (true) {
+            double nota = scanner.nextDouble();
+            if (nota < 0) break;
+            livro.adicionarNota(nota);
+        }
+
+        System.out.println("Quantidade de notas: " + livro.getQuantidadeNotas());
+        System.out.println("Média: " + livro.calcularMedia());
+    }
+}
